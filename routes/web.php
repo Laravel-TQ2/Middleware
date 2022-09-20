@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ControladorPublico;
+use App\Http\Controllers\ControladorPrivado;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+
+Route::get('/public', [ControladorPublico::class,'mostrar']);
+Route::get('/private', [ControladorPrivado::class,'mostrarPrivado']);
+
+
