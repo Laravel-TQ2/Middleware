@@ -11,8 +11,10 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function CrearUsuario(Request $request){
+       
+
         User::create([
-            'name' => $request -> post("usuario"),
+            'name' => $request -> post("user"),
             'email' => $request -> post("email"),
             'password' => Hash::make($request -> post("password"))
         ]);

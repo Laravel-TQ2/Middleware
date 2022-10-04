@@ -8,7 +8,7 @@
 </head>
 <body>
     <form action="/crearUsuario" method="post"> @csrf
-        Nombre: <input type="text" name="usuario"> <br />
+        Nombre: <input type="text" name="user"> <br />
         Email: <input type="email" name="email"> <br />
         Password: <input type="password" name="password"> <br />
         <input type="submit" value="Crear">
@@ -17,6 +17,10 @@
 
     @isset($usuarioCreado)
         <b> Usuario creado correctamente </b>
+    @endisset
+
+    @isset($errores)
+        {{ $errores }}
     @endisset
 </body>
 </html>
