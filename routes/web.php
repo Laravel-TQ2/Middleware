@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ControladorPublico;
 use App\Http\Controllers\ControladorPrivado;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\Autenticado;
 
 
@@ -24,6 +25,14 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/crearUsuario', function () {
+    return view('crearUsuario');
+});
+
+Route::post('/login', [UserController::class,'Login']);
+Route::post('/crearUsuario', [UserController::class,'CrearUsuario']);
+
 
 
 Route::get('/public', [ControladorPublico::class,'mostrar']);

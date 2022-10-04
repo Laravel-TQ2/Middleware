@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class Autenticado
 {
@@ -16,9 +18,9 @@ class Autenticado
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request -> get("usuario") !== "usuario")
-            return redirect('/login');
-
-        return $next($request);
+        if(Auth::user())
+            return $next($request);
+            
+        return redirect('/login');
     }
 }
